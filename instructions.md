@@ -1,4 +1,4 @@
-## Cloud Native with Quarkus basics 
+# Cloud Native with Quarkus basics 
 
 Welcome to this Quicklab on getting started with Quarkus! We will walk through the basics of building a server-side Java appliction using the Quarkus framework.
 
@@ -12,7 +12,7 @@ Quarkus is Supersonic, Subatomic Java development - rapid dev that sparks joy! W
 ## Prerequisites (optional)
 Basic knowledge of Java and command line operation is required. 
 
-## Get the source code and template project
+# Get the source code and template project
 
 Open a new terminal if it isn't open already:
 
@@ -20,13 +20,19 @@ Open a new terminal if it isn't open already:
 
 Clone the source code:
 
-`git clone https://gitlab.com/ibm-skills-network/quicklabs/cloud-native-java-with-quarkus`
+```
+git clone https://github.com/IBM/Cloud-Native-Java-with-Quarkus-Quicklab
+```
+{: codeblock}
 
-## Start Quarkus in dev mode and hack some code
+# Start Quarkus in dev mode and hack some code
 
 Start Quarkus in dev mode:
 
-`mvn quarkus:dev`
+```
+mvn quarkus:dev
+```
+{: codeblock}
 
 Open a second terminal window:
 
@@ -34,7 +40,10 @@ Open a second terminal window:
 
 Execute this command to hit the "/hello" endpoint in the Quarkus project:
 
-`curl http://localhost:8080/hello`
+```
+curl http://localhost:8080/hello
+```
+{: codeblock}
 
 You should see the message "hello" returned!
 
@@ -52,12 +61,15 @@ You'll see a line where we print out that "hello" message
 
 Now change that "hello" to "HELLO FROM ATLANTA"  or where ever you live... run the curl command to hit our endpoint again and see what gets printed out; it should be the new greeting you typed in.
 
-`curl http://localhost:8080/hello`
+```
+curl http://localhost:8080/hello
+```
+{: codeblock}
 
 Notice how you didn't need to restart anything! If you have a look at the terminal where Quarkus is running you'll see a message like this:
 `Hot replace total time ...`
 
-## RESTing with Quarkus
+# RESTing with Quarkus
 
 Have a look at the source file:
 
@@ -73,7 +85,7 @@ You'll see that the class has a top-level annotation for its URI specified by @P
 Change the path to "/books", as we'll use a simple library/bookstore metaphor to build our sample application:
  `@Path("/books")`
 
-### Parameters
+## Parameters
 
 Let's see how we get a URI parameter to use later to retrieve a book by Id. We simply do two things:
 1. Annotate a method with: `@Path("/{id}")`
@@ -90,7 +102,10 @@ Let's see how we get a URI parameter to use later to retrieve a book by Id. We s
 
 Test it using this:
 
-`curl http://localhost:8080/books/123`
+```
+curl http://localhost:8080/books/123
+```
+{: codeblock}
 
 You should see the ID of 123 returned.
 
@@ -113,19 +128,34 @@ In the source below, we've created a mock List collection of the Book class/type
 You can exercise these new RESTful endpoints using a curl command line this:
 
 ### List all
-`curl http://localhost:8080/books`
+```
+curl http://localhost:8080/books
+```
+{: codeblock}
 
 ### Get one by id
-`curl http://localhost:8080/books/1`
+```
+curl http://localhost:8080/books/1
+```
+{: codeblock}
 
 ### Create
-`curl -v -X POST -H "Content-type: application/json" -d '{"author":"Pratik Patel", "title":"Testcontainer for Integration Tests", "ISBN":"0-4321-12378"}'  http://localhost:8080/books`
+```
+curl -v -X POST -H "Content-type: application/json" -d '{"author":"Pratik Patel", "title":"Testcontainer for Integration Tests", "ISBN":"0-4321-12378"}'  http://localhost:8080/books
+```
+{: codeblock}
 
 ### Update
-`curl -v -X PUT -H "Content-type: application/json" -d '{"author":"Pratik Patel", "title":"Testing with Quarkus", "ISBN":"0-4321-12378"}'  http://localhost:8080/books/3`
+```
+curl -v -X PUT -H "Content-type: application/json" -d '{"author":"Pratik Patel", "title":"Testing with Quarkus", "ISBN":"0-4321-12378"}'  http://localhost:8080/books/3
+```
+{: codeblock}
 
 ### Delete
-`curl -v -X DELETE -H "Content-type: application/json" http://localhost:8080/books/4`
+```
+curl -v -X DELETE -H "Content-type: application/json" http://localhost:8080/books/4
+```
+{: codeblock}
 
 
 
@@ -193,10 +223,10 @@ public class ExampleResource {
 
 ```
 
-## Extra Credit!
+# Extra Credit!
 
 Have a look at the Book object and how we serialize/deserialize to JSON from the Resource / REST endpoint class. Super cool that we don't have to write any helper objects to do this!
 
-## Summary 
+# Summary 
 
 When you're ready, continue your journey with the next Quicklab!
